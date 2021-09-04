@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import Footer from "./components/Footer";
+import About from "./components/About";
 const App = () => {
   // state for tasks and form
   const [tasks, setTasks] = useState([
@@ -72,19 +75,32 @@ const App = () => {
     setTasks(tasks.filter((x) => x.id !== id));
   };
   return (
-    <div className="container_wraper_border">
-      <div className="container">
-        <Header toggle_form={trigger_form} showForm={addstate} />
-        {addstate && <AddTask onAdd={onAdd} />}
-        <Tasks
-          tasks={tasks}
-          trigger_rem={trigger_rem}
-          love_it={love_it}
-          onDelete={delete_task}
-        />
-      </div>
-      <p className="info"></p>
-    </div>
+    <Router>
+      <Header toggle_form={trigger_form} showForm={addstate} />
+      <Route
+        path="/"
+        exact
+        render={() => (
+          <>
+            <div className="container_wraper_border">
+              <div className="container">
+                {addstate && <AddTask onAdd={onAdd} />}
+                <Tasks
+                  tasks={tasks}
+                  trigger_rem={trigger_rem}
+                  love_it={love_it}
+                  onDelete={delete_task}
+                />
+              </div>
+              <p className="info"></p>
+            </div>
+            <Footer />
+          </>
+        )}
+      ></Route>
+      
+        <Route path="/about" component={About}></Route>
+    </Router>
   );
 };
 export default App;

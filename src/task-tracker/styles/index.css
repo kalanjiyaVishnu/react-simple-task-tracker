@@ -27,7 +27,7 @@ body {
   margin: auto;
 }
 
-.container .header {
+.header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,13 +40,13 @@ body {
   position: relative;
 }
 
-.container .header h1 {
+.header h1 {
   font-size: 1.4rem;
   margin: 0;
   padding: 0;
 }
 
-.container .header .btn-boot-reset {
+.header .btn-boot-reset {
   right: 0;
   background-color: transparent;
   border: none;
@@ -65,14 +65,14 @@ body {
   transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
 }
 
-.container .header .btn-boot-reset:hover {
+.header .btn-boot-reset:hover {
   color: #3fd1d1;
   opacity: 1;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
 
-.container .header .btn-boot-reset:focus {
+.header .btn-boot-reset:focus {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -316,5 +316,27 @@ body {
   position: absolute;
   bottom: 0px;
   right: 20px;
+}
+
+.dis-flex {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+}
+
+.about span {
+  margin: 0.4rem 1rem 0 0;
 }
 /*# sourceMappingURL=index.css.map */
