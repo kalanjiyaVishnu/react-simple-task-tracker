@@ -1,0 +1,231 @@
+@import "utils";
+
+:root {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  --tp: rgb(231, 231, 231);
+  --ts: rgb(255, 255, 255);
+  --bg: rgb(17, 17, 17);
+  --gd: rgb(26, 26, 26);
+}
+
+* {
+  font-size: 16px;
+}
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 1rem;
+  background-color: #222;
+  color: #fff;
+}
+.container {
+  width: 75%;
+  margin: auto;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    h1 {
+      font-size: 1.4rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .btn-boot-reset {
+      right: 0;
+      background-color: transparent;
+      border: none;
+      opacity: 0.99;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      font-size: 2rem;
+
+      transform-style: preserve-3D;
+      transform-origin: center center;
+      transition: transform 300ms ease-out;
+      &:hover {
+        color: rgb(63, 209, 209);
+        opacity: 1;
+
+        transform: scale(1.5);
+      }
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.tasks-container {
+  display: flex;
+  border-top: 3px solid rgb(189, 189, 189);
+  flex-direction: column;
+  margin-top: 0.4rem;
+  padding: 0.3rem 0;
+  > div {
+    padding: 0 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid rgba($color: #fff, $alpha: 0.1);
+      margin-bottom: 0.5rem;
+    }
+    > span {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+      // align-items: s/;
+    }
+  }
+  & > div :not(:last-of-type) {
+    border-bottom: 1px solid red;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+  }
+}
+.border-left {
+  border-left: rgb(0, 255, 128) solid;
+}
+.border-love {
+  border-left: rgb(255, 38, 0) solid;
+}
+.task-text {
+  height: 100%;
+  display: flex;
+  text-align: start;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  font-family: inherit;
+  align-items: flex-start;
+
+  > span {
+    cursor: none;
+    margin: 0.4rem 0;
+    color: #222;
+    z-index: 1;
+    font-family: inherit;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 0.2rem 1rem;
+    transition: color 500ms ease;
+    position: relative;
+    &:after {
+      transition: width 600ms ease, background-color 150ms ease,
+        border 100ms linear;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      background-color: #fff;
+      opacity: 0.99;
+      border-radius: 0.2rem;
+      width: 100%;
+      z-index: -11;
+      box-shadow: 3px 3px 10px rgba($color: rgb(46, 46, 46), $alpha: 0.5);
+      box-shadow: rgba($color: rgb(0, 0, 0), $alpha: 0.5) 0px 1px 3px 0px,
+        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    }
+    &:hover {
+      color: rgb(255, 255, 255);
+
+      &:after {
+        width: 115%;
+        background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.02);
+        border: 2px solid rgba($color: rgb(255, 143, 143), $alpha: 0.4);
+      }
+    }
+  }
+}
+
+.btn-icons {
+  outline: none;
+  border: none;
+
+  background-color: transparent;
+  cursor: pointer;
+  margin: 1px;
+  border-radius: 0.4rem;
+  transition: all 300ms ease-in-out;
+  border: 2px solid rgba($color: #fff, $alpha: 0);
+  transition: all 400ms ease;
+  &:hover {
+    background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.1);
+    border: 2px solid rgba($color: rgb(255, 143, 143), $alpha: 0.4);
+  }
+  &_grayer {
+    filter: grayscale(1);
+  }
+}
+.add_task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: inherit;
+  width: 100%;
+  color: #fff;
+  input {
+    accent-color: red;
+    color: #fff;
+
+    width: 100%;
+    padding: 0.2rem 0.4rem;
+    // color: rgb(0, 0, 0);
+    outline: none;
+    border-radius: 0.2rem;
+    border: none;
+    margin: 0.4rem 0;
+    background-color: transparent;
+  }
+  .check-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin-right: auto;
+    // padding-right: auto;
+    width: 7rem;
+    height: 2.4rem;
+  }
+  input[type="text"] {
+    border-bottom: 2px solid #fff;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  input[type="checkbox"] {
+    zoom: 1.4;
+    margin: auto;
+    padding: auto;
+    outline: none;
+  }
+  button {
+    @include btn-boot-reset;
+    outline: none;
+  }
+  input:focus {
+    outline: none;
+  }
+}
+.info {
+  &::after {
+    content: "double tap to mark or remove";
+
+    font-family: inherit;
+    font-weight: 200;
+    opacity: 0.15;
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+  }
+}

@@ -1,0 +1,18 @@
+@mixin btn-boot-reset {
+  color: #fff;
+  background-color: rgb(53, 53, 53);
+  border: none;
+  text-align: center;
+  outline: none;
+  border-radius: 0.2rem;
+  transition: all 200ms ease;
+  &:hover {
+    background-color: rgba(66, 66, 66, 0.4);
+    color: #fff;
+  }
+  &:focus {
+    background-color: rgba(133, 133, 133, 0.4);
+
+    outline: none;
+  }
+}
