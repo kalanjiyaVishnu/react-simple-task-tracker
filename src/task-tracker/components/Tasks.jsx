@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 const Tasks = ({ tasks, trigger_rem ,love_it , onDelete}) => {
-  console.log(tasks);
+  // console.log(tasks);
   return (
     <div className="tasks-container" key="top-level-container">
       {tasks.map((task) => (
